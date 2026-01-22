@@ -5,6 +5,10 @@
     <title>Driver Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'school_transport/css/driver_dashboard.css' %}">
+
+    <!-- PWA Manifest and Theme Color -->
+    <link rel="manifest" href="{% static 'pwa/manifest.json' %}">
+    <meta name="theme-color" content="#800000">
 </head>
 <body>
 <div class="app">
@@ -54,8 +58,15 @@
         {% empty %}
         <p>No children assigned.</p>
         {% endfor %}
-
     </div>
 </div>
+
+<!-- Service Worker Script for PWA -->
+<script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register("{% static 'pwa/service-worker.js' %}");
+}
+</script>
+
 </body>
 </html>
