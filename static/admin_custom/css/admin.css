@@ -1,0 +1,63 @@
+/* ===== ADMIN WALLPAPER ===== */
+body.login,
+body.dashboard,
+body.change-form,
+body.app-school_transport {
+    background: url("../images/wallpaper.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* ===== MAROON OVERLAY ===== */
+#container,
+#content,
+#content-main {
+    background: rgba(128, 0, 0, 0.15);
+}
+
+/* ===== FORCE ALL TEXT TO BLACK ===== */
+body,
+#container,
+#content,
+#content-main,
+.module,
+.module h2,
+.module caption,
+.dashboard-module,
+form,
+label,
+p,
+h1, h2, h3, h4, h5,
+a,
+th,
+td,
+.help,
+.breadcrumbs {
+    color: #000000 !important;
+}
+
+/* ===== LINKS ===== */
+a:link,
+a:visited {
+    color: #000000 !important;
+}
+
+/* ===== INPUTS ===== */
+input,
+select,
+textarea {
+    color: #000000 !important;
+    background-color: #ffffff !important;
+}
+
+/* ===== TABLE HEADERS ===== */
+thead th {
+    color: #000000 !important;
+}
+
+/* ===== BUTTONS ===== */
+.button,
+input[type="submit"] {
+    background-color: maroon !important;
+    color: white !important;
+    border: none;
+}

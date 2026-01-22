@@ -1,0 +1,13 @@
+body {
+    background: url('../images/wallpaper.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+}
+
+#header, #user-tools, .module h2 {
+    background-color: #800000 !important;
+    color: #fff !important;
+}
+
+a, a:visited {
+    color: #ffdddd !important;
+}

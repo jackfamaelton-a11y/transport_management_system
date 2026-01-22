@@ -1,0 +1,16 @@
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('school_transport.urls')),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+CSRF_TRUSTED_ORIGINS = []
+SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = False

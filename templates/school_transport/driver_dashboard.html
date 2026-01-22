@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'school_transport/css/driver_dashboard.css' %}">
+</head>
+
+<body class="dashboard-bg">
+
+<div class="dashboard-card">
+
+    <h2>Welcome, {{ driver.full_name }}</h2>
+
+    {% if driver.profile_photo %}
+        <img src="{{ driver.profile_photo.url }}" class="driver-photo">
+    {% endif %}
+
+    <!-- 🔔 Notifications Section -->
+    <div class="notifications">
+        <h3>Notifications</h3>
+        <ul>
+            {% for note in notifications %}
+                <li {% if not note.read %}class="unread"{% endif %}>
+                    {{ note.message }}
+                    <br>
+                    <small>{{ note.created_at|date:"H:i M d" }}</small>
+                </li>
+            {% empty %}
+                <li>No notifications</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <h3>Assigned Children</h3>
+
+    {% for child in children %}
+        <div class="child-card">
+
+            {% if child.profile_photo %}
+                <img src="{{ child.profile_photo.url }}" class="child-photo">
+            {% endif %}
+
+            <p><strong>Name:</strong> {{ child.full_name }}</p>
+            <p><strong>Residential Area:</strong> {{ child.residential_area }}</p>
+            <p><strong>Class:</strong> {{ child.student_class }}</p>
+            <p><strong>Teacher:</strong> {{ child.teacher }}</p>
+            <p><strong>Guardian Phone:</strong> {{ child.guardian_phone }}</p>
+
+        </div>
+    {% empty %}
+        <p>No children assigned.</p>
+    {% endfor %}
+
+    <a href="{% url 'driver_logout' %}" class="logout-btn">Logout</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+/* Maroon background for header and sidebar */
+body, .module, .grp-module {
+    background-color: #800000 !important;
+    color: white !important;
+}
+
+/* White text for admin links */
+a, .grp-button, .grp-add-button {
+    color: white !important;
+}
+
+/* Admin wallpaper for main content */
+#content-main {
+    background-image: url("/static/admin_custom/images/wallpaper.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Optional: adjust tables to contrast */
+table {
+    background-color: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,36 @@
+/* base.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: maroon;
+    color: white;
+    background-image: url('../images/wallpaper.jpg'); /* add wallpaper.jpg here */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+img {
+    border-radius: 5px;
+}
+
+a {
+    color: white;
+    text-decoration: underline;
+}

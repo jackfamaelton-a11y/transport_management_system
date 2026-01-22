@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Transport System{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'school_transport/css/admin_wallpaper.css' %}"> <!-- your admin wallpaper -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+
+    </div>
+</body>
+</html>

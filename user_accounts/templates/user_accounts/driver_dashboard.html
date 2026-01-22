@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard/dashboard.css' %}">
+</head>
+<body>
+<h1>Welcome, {{ driver.user.username }}</h1>
+
+<h2>Assigned Children</h2>
+{% if children %}
+<table border="1">
+    <tr>
+        <th>Child Name</th>
+        <th>Level</th>
+        <th>Teacher</th>
+        <th>Profile Photo</th>
+    </tr>
+    {% for child in children %}
+    <tr>
+        <td>{{ child.first_name }} {{ child.last_name }}</td>
+        <td>{{ child.level|default:"N/A" }}</td>
+        <td>{{ child.teacher|default:"N/A" }}</td>
+        <td>
+            {% if child.profile_photo %}
+                <img src="{{ child.profile_photo.url }}" width="50">
+            {% else %}
+                N/A
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No children assigned yet.</p>
+{% endif %}
+
+<h2>Assignments</h2>
+{% if assignments %}
+<ul>
+    {% for a in assignments %}
+    <li>{{ a.child.first_name }}: {{ a.pickup_location }} -> {{ a.dropoff_location }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No assignments yet.</p>
+{% endif %}
+
+<a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

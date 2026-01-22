@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Transport Management{% endblock %}</title>
+
+    {% load static %}
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static 'school_transport/css/base.css' %}">
+
+    <!-- Page-specific CSS -->
+    {% block extrahead %}{% endblock %}
+</head>
+<body>
+
+    <!-- Header -->
+    <header style="background-color: maroon; color: white; padding: 15px; text-align: center;">
+        <h1>{% block header %}Transport Management System{% endblock %}</h1>
+    </header>
+
+    <!-- Main content -->
+    <main style="padding: 20px;">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: maroon; color: white; text-align: center; padding: 10px; position: fixed; width: 100%; bottom: 0;">
+        &copy; 2026 Transport Management
+    </footer>
+
+</body>
+</html>

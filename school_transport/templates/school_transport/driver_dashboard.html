@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Driver Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'school_transport/css/driver_dashboard.css' %}">
+</head>
+<body>
+<div class="app">
+
+    <!-- HEADER -->
+    <div class="header">
+        {% if driver.profile_photo %}
+            <img src="{{ driver.profile_photo.url }}" class="driver-photo">
+        {% endif %}
+        <div class="name">{{ driver.full_name }}</div>
+    </div>
+
+    <!-- NOTIFICATIONS -->
+    <div class="notifications">
+        <h3>Notifications</h3>
+        <ul>
+            {% for note in notifications %}
+                <li {% if not note.read %}class="unread"{% endif %}>
+                    {{ note.message }} - {{ note.created_at|date:"H:i M d" }}
+                </li>
+            {% empty %}
+                <li>No notifications</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- DRIVER INFO -->
+    <div class="content">
+        <div class="info-box">
+            <p><strong>Current Location:</strong> {{ driver.current_location }}</p>
+            <p><strong>Destination:</strong> {{ driver.destination }}</p>
+        </div>
+
+        <!-- CHILD CARDS -->
+        {% for child in children %}
+        <div class="child-card">
+            {% if child.profile_photo %}
+                <img src="{{ child.profile_photo.url }}" class="child-photo">
+            {% endif %}
+            <div class="child-info">
+                <h4>{{ child.full_name }}</h4>
+                <p>Class: {{ child.level }}</p>
+                <p>Area: {{ child.residential_area }}</p>
+                <p>Guardian: {{ child.guardian_phone }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>No children assigned.</p>
+        {% endfor %}
+
+    </div>
+</div>
+</body>
+</html>

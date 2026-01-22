@@ -1,0 +1,101 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* BACKGROUND */
+.dashboard-bg {
+    min-height: 100vh;
+    background: url("/static/admin_custom/images/wallpaper.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+/* MAIN CARD */
+.dashboard-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(128, 0, 32, 0.95); /* maroon */
+    color: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* HEADER */
+.dashboard-card h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+/* DRIVER PHOTO */
+.driver-photo {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+/* SECTION TITLE */
+.dashboard-card h3 {
+    margin: 20px 0 10px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+}
+
+/* CHILD CARD */
+.child-card {
+    background: #fff;
+    color: #333;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* CHILD PHOTO */
+.child-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* CHILD INFO */
+.child-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* LOGOUT */
+.dashboard-card a {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* MOBILE TWEAKS */
+@media (max-width: 360px) {
+    .dashboard-card {
+        padding: 15px;
+    }
+}
