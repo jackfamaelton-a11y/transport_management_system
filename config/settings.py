@@ -3,9 +3,9 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'your-secret-key'
-DEBUG = os.environ.get("DEBUG", "True") == "True"
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+SECRET_KEY =  os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key-for-local')
+DEBUG = False
+ALLOWED_HOSTS = ['transport_management_system.onrender.com', 'Localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -19,6 +19,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,6 +61,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
