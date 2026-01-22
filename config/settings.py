@@ -5,7 +5,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY =  os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key-for-local')
 DEBUG = False
-ALLOWED_HOSTS = ['transport_management_system.onrender.com', 'Localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['transport-management-system-q0uj.onrender.com', 'Localhost', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = [
+    "https://transport-management-system.onrender.com",
+]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
