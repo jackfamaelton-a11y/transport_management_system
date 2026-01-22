@@ -2,6 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import Driver, Child
+from django.shortcuts import redirect
+
+def home(request):
+    """
+    Redirect the root URL '/' to the driver login page.
+    """
+    return redirect('driver_login')
 
 def driver_login(request):
     if request.method == "POST":
