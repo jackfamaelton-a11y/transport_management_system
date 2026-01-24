@@ -4,12 +4,13 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY =  os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key-for-local')
-DEBUG = False
+DEBUG =  os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = ['transport-management-system-q0uj.onrender.com', 'Localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
     "https://transport-management-system-q0uj.onrender.com",
 ]
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -21,6 +22,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    1,
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
