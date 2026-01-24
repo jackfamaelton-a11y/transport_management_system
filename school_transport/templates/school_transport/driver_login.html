@@ -1,11 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Driver Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'school_transport/css/login.css' %}">
+</head>
+
 <body class="login-bg">
+
     <div class="login-card">
         <h2>Driver Login</h2>
+
         <form method="post">
             {% csrf_token %}
             {{ form.username }}
             {{ form.password }}
-            <input type="submit" value="Login">
+
+            <button type="submit">Login</button>
         </form>
     </div>
+
 </body>
+</html>

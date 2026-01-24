@@ -14,7 +14,6 @@ CSRF_TRUSTED_ORIGINS = [
     "https://transport-management-system-q0uj.onrender.com",
 ]
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -26,8 +25,6 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    1,
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -67,7 +64,7 @@ DATABASES = {
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'static'
+    BASE_DIR / 'school_transport' / 'static',
 ]
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'

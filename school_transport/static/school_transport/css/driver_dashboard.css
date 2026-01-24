@@ -1,29 +1,41 @@
+/* ===========================
+   DASHBOARD BACKGROUND
+=========================== */
 body.dashboard-bg {
-    background: url("/static/admin_custom/images/wallpaper.jpg") no-repeat center center fixed;
+    background: url("{% static 'admin_custom/images/wallpaper.jpg' %}") no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/* ===========================
+   DASHBOARD CARD
+=========================== */
 .dashboard-card {
-    background: rgba(255,255,255,0.95);
-    margin: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    margin: 10px auto;          /* auto centers */
     border-radius: 12px;
     padding: 15px;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
+/* ===========================
+   DRIVER PHOTO
+=========================== */
 .driver-photo {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     display: block;
-    margin: auto;
+    margin: 10px auto;          /* centered */
+    object-fit: cover;
+    border: 2px solid #800000;  /* optional maroon border */
 }
 
+/* ===========================
+   CHILD CARDS
+=========================== */
 .child-card {
     background: #fff;
     border-radius: 10px;
@@ -31,24 +43,40 @@ body.dashboard-bg {
     padding: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.child-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .child-card h4 {
     margin: 0;
 }
 
+/* child photo next to name */
 .child-photo {
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    float: left;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 1px solid #ccc;
 }
 
+/* hidden details for tap-to-expand */
 .child-details {
     display: none;  /* hidden initially */
+    clear: both;
     margin-top: 5px;
+    padding-left: 60px;   /* align under photo */
     font-size: 0.9em;
 }
 
+/* ===========================
+   LOGOUT BUTTON
+=========================== */
 .logout-btn {
     display: block;
     margin: 20px auto;
@@ -58,4 +86,29 @@ body.dashboard-bg {
     color: white;
     border-radius: 8px;
     text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #a00000;
+}
+
+/* ===========================
+   MOBILE RESPONSIVENESS
+=========================== */
+@media only screen and (max-width: 500px) {
+    .dashboard-card {
+        padding: 12px;
+        margin: 8px;
+    }
+
+    .child-photo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logout-btn {
+        padding: 8px;
+    }
 }
