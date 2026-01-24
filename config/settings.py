@@ -5,7 +5,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY =  os.environ.get('DJANGO_SECRET_KEY', 'fallback-secret-key-for-local')
 DEBUG =  os.environ.get("DEBUG", "False") == "True"
-ALLOWED_HOSTS = ['transport-management-system-q0uj.onrender.com', 'Localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".onrender.com",
+]
 CSRF_TRUSTED_ORIGINS = [
     "https://transport-management-system-q0uj.onrender.com",
 ]
