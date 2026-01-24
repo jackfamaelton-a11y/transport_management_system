@@ -39,6 +39,8 @@ def driver_dashboard(request):
     # children assigned to this driver
     children = Child.objects.filter(driver=driver)
 
+    delivery_locations = driver.delivery_locations if hasattr(driver, 'delivery_locations') else []
+
     notifications = driver.notifications.order_by('-created_at')
 
     return render(request, "school_transport/driver_dashboard.html", {

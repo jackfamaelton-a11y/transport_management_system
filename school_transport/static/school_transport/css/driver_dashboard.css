@@ -1,83 +1,61 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
-}
-
-/* PAGE BACKGROUND */
-body {
+body.dashboard-bg {
     background: url("/static/admin_custom/images/wallpaper.jpg") no-repeat center center fixed;
     background-size: cover;
-    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* APP CONTAINER */
-.app {
-    background: rgba(255, 255, 255, 0.92);
-    min-height: 100vh;
-}
-
-/* HEADER */
-.header {
-    background: maroon;
-    color: white;
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-}
-
-.header .name {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* CONTENT */
-.content {
-    padding: 14px;
-}
-
-/* INFO BOX */
-.info-box {
-    background: #f6f6f6;
-    border-radius: 10px;
-    padding: 12px;
-    margin-bottom: 14px;
-}
-
-/* CHILD CARD */
-.child-card {
-    background: white;
+.dashboard-card {
+    background: rgba(255,255,255,0.95);
+    margin: 10px;
     border-radius: 12px;
-    padding: 12px;
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 15px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.child-card img {
-    width: 60px;
-    height: 60px;
+.driver-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+.child-card {
+    background: #fff;
     border-radius: 10px;
-    object-fit: cover;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 
-.child-info h4 {
-    margin-bottom: 4px;
+.child-card h4 {
+    margin: 0;
 }
 
-.child-info p {
-    font-size: 14px;
-    color: #333;
+.child-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.child-details {
+    display: none;  /* hidden initially */
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+.logout-btn {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #800000;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
 }

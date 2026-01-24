@@ -6,63 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'school_transport/css/driver_dashboard.css' %}">
 
-    <!-- PWA Manifest and Theme Color -->
+    <!-- PWA manifest -->
     <link rel="manifest" href="{% static 'pwa/manifest.json' %}">
     <meta name="theme-color" content="#800000">
 </head>
-<body>
-<div class="app">
+<body class="dashboard-bg">
 
-    <!-- HEADER -->
-    <div class="header">
+<div class="dashboard-card">
+
+    <!-- Driver Info -->
+    <div class="driver-header">
         {% if driver.profile_photo %}
             <img src="{{ driver.profile_photo.url }}" class="driver-photo">
         {% endif %}
-        <div class="name">{{ driver.full_name }}</div>
+        <h2>{{ driver.full_name }}</h2>
     </div>
 
-    <!-- NOTIFICATIONS -->
-    <div class="notifications">
-        <h3>Notifications</h3>
-        <ul>
-            {% for note in notifications %}
-                <li {% if not note.read %}class="unread"{% endif %}>
-                    {{ note.message }} - {{ note.created_at|date:"H:i M d" }}
-                </li>
-            {% empty %}
-                <li>No notifications</li>
-            {% endfor %}
-        </ul>
+    <!-- Driver Delivery Locations -->
+    <div class="driver-locations">
+        <h3>Delivery Locations</h3>
+        {% for location in driver.delivery_locations %}
+            <p>{{ location }}</p>
+        {% empty %}
+            <p>No locations assigned.</p>
+        {% endfor %}
     </div>
 
-    <!-- DRIVER INFO -->
-    <div class="content">
-        <div class="info-box">
-            <p><strong>Current Location:</strong> {{ driver.current_location }}</p>
-            <p><strong>Destination:</strong> {{ driver.destination }}</p>
-        </div>
-
-        <!-- CHILD CARDS -->
+    <!-- Assigned Children -->
+    <h3>Assigned Children</h3>
+    <div class="children-list">
         {% for child in children %}
-        <div class="child-card">
+        <div class="child-card" onclick="toggleDetails('child-{{ child.id }}')">
             {% if child.profile_photo %}
                 <img src="{{ child.profile_photo.url }}" class="child-photo">
             {% endif %}
-            <div class="child-info">
-                <h4>{{ child.full_name }}</h4>
-                <p>Class: {{ child.level }}</p>
-                <p>Area: {{ child.residential_area }}</p>
-                <p>Guardian: {{ child.guardian_phone }}</p>
+            <h4>{{ child.full_name }}</h4>
+            <div id="child-{{ child.id }}" class="child-details">
+                <p><strong>Class:</strong> {{ child.level }}</p>
+                <p><strong>Residential Area:</strong> {{ child.residential_area }}</p>
+                <p><strong>Teacher:</strong> {{ child.teacher }}</p>
+                <p><strong>Guardian Phone:</strong> {{ child.guardian_phone }}</p>
             </div>
         </div>
         {% empty %}
-        <p>No children assigned.</p>
+            <p>No children assigned.</p>
         {% endfor %}
     </div>
+
+    <a href="{% url 'driver_logout' %}" class="logout-btn">Logout</a>
+
 </div>
 
-<!-- Service Worker Script for PWA -->
+<!-- Toggle JS -->
 <script>
+function toggleDetails(id){
+    const elem = document.getElementById(id);
+    if(elem.style.display === "none" || elem.style.display === ""){
+        elem.style.display = "block";
+    } else {
+        elem.style.display = "none";
+    }
+}
+
+// Register service worker for PWA
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register("{% static 'pwa/service-worker.js' %}");
 }

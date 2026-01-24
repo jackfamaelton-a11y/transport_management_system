@@ -1,0 +1,50 @@
+body.login-bg {
+    background: url("/static/admin_custom/images/wallpaper.jpg") no-repeat center center fixed;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card {
+    background-color: rgba(255, 255, 255, 0.95); /* semi-transparent card */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 20px;
+    color: #000; /* black text */
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.login-card input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #800000; /* maroon button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-card input[type="submit"]:hover {
+    background-color: #a00000;
+}
